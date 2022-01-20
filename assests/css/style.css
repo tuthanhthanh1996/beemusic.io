@@ -348,6 +348,23 @@ MAIN CONTENT
   font-size: 2.5rem;
 }
 
+.playList {
+  max-height: 240px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-bottom: 1rem;
+}
+
+*::-webkit-scrollbar {
+	background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 3rem;
+	background-color: transparent;
+	border: none;
+}
+
 .main.dark-theme .playList-head__title {
   color: #fff;
 }
@@ -387,6 +404,10 @@ MAIN CONTENT
   padding: 0 1rem;
 }
 
+.playList table thead tr th:last-child   {
+  padding-right: 1rem;
+}
+
 .playList table tbody tr {
   position: relative;
   text-align: left;
@@ -398,7 +419,7 @@ MAIN CONTENT
   background-color: #fff;
 }
 
-.playList table tbody tr.active td:last-child{
+.playList table tbody tr.active td:last-child {
   border-top-right-radius: 0.8rem;
   border-bottom-right-radius: 0.8rem;
 }
@@ -431,15 +452,15 @@ MAIN CONTENT
 }
 
 .playList table tbody tr td {
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 }
 
 .playList table tbody tr td:first-child   {
-  padding: 0 1rem;
+  padding: 1rem 1rem;
 }
 
 .playList table tbody tr td:nth-child(3)  {
-  padding: 0 1rem;
+  padding: 1rem 1rem;
 }
 
 .play-song {
@@ -749,7 +770,30 @@ RESPONSIVE
   }
 
   .main-content__banner {
-    height: 20rem;
+    height: 18rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .playList table tbody tr td {
+    padding: 0.5rem 0;
+  }
+  
+  .playList table tbody tr td:first-child   {
+    padding: 0.5rem 1rem;
+  }
+  
+  .playList table tbody tr td:nth-child(3)  {
+    padding: 0.5rem 1rem;
+  }
+
+  .playList table tbody tr td:last-child {
+    padding-right: 0.5rem;
+  }
+
+  .playList {
+    max-height: 240px;
+    overflow: auto;
+    padding-bottom: 1rem;
   }
 
   .play-song {
