@@ -1,0 +1,746 @@
+/*=============================================
+        DESIGNED IDEA: DRIBBLE
+        Coding: Tu Thanh Thanh
+==============================================*/
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family:  'Poppins';
+  color: #676669;
+  font-weight:400;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: #676669;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.main {
+  background-color: #dcdde7;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.main.dark-theme {
+  background-color: #092c3e;
+}
+
+.main.dark-theme .navbar {
+  background-color: #121212;
+}
+
+.main.dark-theme .navbar i {
+  color: #ccc;
+}
+
+.main.dark-theme .toolBar-radioButton {
+  background-color: #fff;
+}
+
+.main.dark-theme .toolBar-radioButton__circle {
+  background-color: #092c3e;
+}
+
+.main.dark-theme .navbar-user__content {
+  color: #ccc;
+}
+/*=========================================
+NAVBAR
+==========================================*/
+.navbar {
+  width: calc(100% / 4);
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.navbar.active {
+  left: 0;
+  opacity: 1;
+}
+
+.navbar-container {
+  padding: 3rem;
+}
+
+.navbar-container__toolBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toolBar-radioButton {
+  position: relative;
+  width: 6rem;
+  height: 2.5rem;
+  background-color: #092c3e;
+  border-radius: 1rem;
+  transition: 0.5s linear;
+  cursor: pointer;
+}
+
+.toolBar-radioButton__circle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  left: 2px;
+  margin: auto 0;
+  transition: .5s linear;
+}
+
+.toolBar-radioButton__iconStream {
+  font-size: 1.5rem;
+}
+
+.navbar-container__logo {
+  padding: 4rem 0;
+  font-size: 2rem;
+}
+
+.main.dark-theme .navbar-container__logo i {
+  color: #ffc876;
+}
+
+.main.dark-theme .navbar-container__logo span:last-child {
+  color: #ccc;
+}
+
+.logo {
+  font-size: 3rem;
+  color: #ffc876;
+  margin-right: 5px;
+}
+
+.navbar__yellow-text {
+  color: #ffc876;
+}
+
+.navbar-content__icon {
+  font-size: 1.7rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.navbar-content__icon i {
+  margin-right: 15px;
+}
+
+.navbar-content__icon:hover {
+  background: #092c3e;
+  transition: .5s linear;
+}
+
+.navbar-content__icon:hover a {
+  color: #fff;
+}
+
+.navbar-content__title {
+  font-size: 1.3rem;
+  color: grey;
+  margin: 2rem 0 0.8rem 0;
+}
+
+.navbar-user {
+  padding: 3rem;
+  border-top: 1px solid #dbdbdb;
+}
+
+.navbar-user__content {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.user-avt {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 10px;
+}
+
+.user-avt img {
+  height: 100%;
+  border-radius: 50%;
+}
+
+.navbar-user__content a {
+  margin-left: auto;
+}
+
+/*=========================================
+MAIN CONTENT
+==========================================*/
+.main-content {
+  width: calc(100% / 2);
+  padding: 2.5rem 3rem 1rem 3rem;
+}
+
+.main.dark-theme .main-content p {
+  color: #ccc;
+}
+
+.main-content__header {
+  display: flex;
+  align-items: center;
+}
+
+.main-content__header-nav i {
+  width: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.main-content__header-nav i:first-child {
+  font-size: 1.5rem;
+  display: none;
+}
+
+.main-content__header-nav i:last-child {
+  margin: 0 3rem 0 2rem;
+}
+
+.main-content__header .bars-right {
+  font-size: 1.5rem;
+  display: none;
+}
+
+.main.dark-theme .main-content__header-nav i {
+  color: #ccc;
+}
+
+.main-content__searchForm {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 2.5rem;
+  padding: 1rem 1.6rem;
+  font-size: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+}
+
+.main-content__whatHot {
+  margin-top: 2.5rem;
+  font-size: 1.8rem;
+}
+
+.main-content__whatHot img {
+  width: 30px;
+  height: 28px;
+  vertical-align: top;
+}
+
+.main-content__trending {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.main.dark-theme .main-content__trendingTitle {
+  color: #fff;
+}
+
+.main-content__trendingTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+}
+
+.main-content__trendingMore {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.main-content__trendingMore:hover {
+  transition: .2s;
+  background-color: #000;
+  color: #fff;
+  padding: .1rem 1rem;
+  border-radius: 20px;
+}
+
+.main-content__banner {
+  padding: 3rem 2rem;
+  margin-top: 1.2rem;
+  height: 22rem;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.87), rgba(255, 255, 255, 0)), url("../img/banner.jpeg") no-repeat center center/cover;
+  border-radius: 1rem;
+}
+
+.main-content__banner-artist {
+  font-size: 1.5rem;
+}
+
+.main-content__banner-des {
+  font-size: 2.5rem;
+  font-weight: bold;
+  width: 15rem;
+  color: #000;
+}
+
+.main-contentBanner__action {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.main-contentBanner__action-btn button {
+  padding: 0.6rem 1.6rem;
+  font-size: 1.5rem;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  margin-right: 0.8rem;
+  cursor: pointer;
+}
+
+.main-contentBanner__action-btn button:first-child {
+  color: #fff;
+  background-color: #000;
+}
+
+.main-contentBanner__action-btn button:last-child {
+  border: 1px solid #000;
+}
+
+.main-contentBanner__action-des p {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.main-content__playList {
+  margin-top: 3rem;
+}
+
+.playList-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.playList-head__title {
+  color: #000;
+  font-weight: bold;
+  font-size: 2.5rem;
+}
+
+.main.dark-theme .playList-head__title {
+  color: #fff;
+}
+
+.playList-head__showAll {
+  font-size: 1.2rem;
+}
+
+.main.dark-theme .playList-head__showAll {
+  color: #ccc;
+}
+
+.playList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.main.dark-theme .playList {
+  color: #ccc;
+}
+
+.playList table thead tr {
+  text-align: left;
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
+.playList table thead tr th {
+  padding: 1rem 0;
+}
+
+.playList table tbody tr {
+  position: relative;
+  text-align: left;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.playList table tbody tr td:first-child {
+  padding-left: 0.5rem;
+}
+
+.playList table tbody tr.active {
+  background-color: #fff;
+}
+
+.playList table tbody tr.active td:last-child{
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.playList table tbody tr.active td:first-child {
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+}
+
+.playList table tbody tr:hover {
+  background-color: #fff;
+  transition: .25s;
+  transform: scale(1.02);
+}
+
+.main.dark-theme .playList table tbody tr:hover {
+  background-color: #000;
+  transition: .25s;
+  transform: scale(1.02);
+}
+
+.playList table tbody tr:hover td:last-child {
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+}
+
+.playList table tbody tr:hover td:first-child {
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+}
+
+.playList table tbody tr td {
+  padding: 1rem 0;
+}
+
+.play-song {
+  background-color: #fff;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  margin-top: 2.5rem;
+  border-radius: 0.5rem;
+}
+
+.main.dark-theme .play-song {
+  background-color: #000;
+  color: #ccc;
+}
+
+.play-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  padding: 1.5rem 0 1rem;
+}
+
+.play-control__act {
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.play-control__act i {
+  cursor: pointer;
+}
+
+.play-control__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.play-control__main i {
+  cursor: pointer;
+}
+
+.play-control__volume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.play-control__volume .volume {
+  appearance: none;
+  width: 6rem;
+  height: 0.2rem;
+  background-color: #ddd;
+  margin: 0 0.5rem;
+}
+
+.play-seekbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.range {
+  border: 2px#ddd;
+  flex: 1;
+  appearance: none;
+  height: 0.2rem;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  background-color: #fff;
+  height: .8rem;
+  width: .8rem;
+  border-radius: 50%;
+  border: .2rem solid #000;
+  cursor: pointer;
+}
+
+.timer__left, .timer__right {
+  width: 1.6rem;
+  max-width: 1.6rem;
+}
+
+.range:focus, .volume:focus {
+  outline: none;
+}
+
+.play-repeat, .shuffle-song, #heart {
+  transition: .5s;
+}
+
+/*=========================================
+MAIN CONTENT
+==========================================*/
+.sidebar {
+  width: calc(100% / 4);
+  height: 100vh;
+  padding: 3rem 4rem 0 0;
+}
+
+.sidebar.active {
+  right:0;
+  opacity: 1;
+}
+
+.main.dark-theme .sidebar i {
+  color: #ccc;
+}
+
+.sidebar-shortcuts__title {
+  display: flex;
+  color: #000;
+  font-weight: bold;
+  font-size: 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-shortcuts__title i {
+  display: none;
+  font-size: 1.5rem;
+}
+
+.main.dark-theme .sidebar-shortcuts__title {
+  color: #fff;
+}
+
+.sidebar-shortcuts__list {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar-shortcuts__list-item {
+  padding: 0.5rem 1.2rem;
+  background-color: #fff;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0.8rem;
+  align-items: center;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.main.dark-theme .sidebar-shortcuts__list-item {
+  background-color: #000;
+  color: #ccc;
+}
+
+.sidebar-shortcuts__list-item img {
+  height: 1.1rem;
+  margin-left: 0.4rem;
+}
+
+.sidebar-favorite {
+  margin-top: 2rem;
+}
+
+.sidebar-favorite__title {
+  color: #000;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.main.dark-theme .sidebar-favorite__title {
+  color: #fff;
+}
+
+.sidebar-favorite__list {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.main.dark-theme .artist-info {
+  color: #ccc;
+}
+
+.artist-info__avt {
+  margin-right: 1rem;
+}
+
+.artist-info__avt img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.sidebar-favorite__list i {
+  margin-left: auto;
+  font-size: 1rem;
+}
+
+.artist-info__name {
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.main.dark-theme .artist-info__name {
+  color: #ccc;
+}
+
+.sidebar-suggest {
+   margin-top: 2rem;
+}
+
+.suggest-album {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 1.2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.main.dark-theme .suggest-album {
+  background-color: #000;
+}
+
+.suggest-album:hover img {
+  transform:scale(1.3);
+  transition: .25s linear;
+}
+
+.suggest-album__img {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: .25s linear;
+}
+
+.suggest-album__img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.suggest-album__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.suggest-album__info h4 {
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.main.dark-theme .suggest-album__info h4, main.dark-theme .suggest-album__info p {
+  color: #ccc;
+}
+
+/*=========================================
+RESPONSIVE
+==========================================*/
+
+@media (max-width:800px) {
+  .navbar {
+    position: absolute;
+    width: 270px;
+    transition: .5s linear;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    z-index: 999;
+    left: -100%;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .main-content__header-nav i:first-child {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  .main-content__header i:last-child {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  .sidebar {
+    position: absolute;
+    top:0;
+    transition: .5s linear;
+    bottom: 0;
+    right: -100%;
+    opacity: 0;
+    background-color: #dcdde7;
+    z-index: 999;
+    overflow: hidden;
+    width: 270px;
+    box-shadow: 0 0 0.5rem #000;
+    padding: 2rem 1.5rem 1rem 1.5rem;
+  }
+
+  .sidebar-shortcuts__title i {
+    display: block;
+  }
+
+}
