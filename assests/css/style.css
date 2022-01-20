@@ -243,7 +243,7 @@ MAIN CONTENT
 }
 
 .main-content__whatHot {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
   font-size: 1.8rem;
 }
 
@@ -333,7 +333,7 @@ MAIN CONTENT
 }
 
 .main-content__playList {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .playList-head {
@@ -379,15 +379,19 @@ MAIN CONTENT
   padding: 1rem 0;
 }
 
+.playList table thead tr th:first-child   {
+  padding: 0 1rem;
+}
+
+.playList table thead tr th:nth-child(3)  {
+  padding: 0 1rem;
+}
+
 .playList table tbody tr {
   position: relative;
   text-align: left;
   font-size: 1.4rem;
   cursor: pointer;
-}
-
-.playList table tbody tr td:first-child {
-  padding-left: 0.5rem;
 }
 
 .playList table tbody tr.active {
@@ -428,6 +432,14 @@ MAIN CONTENT
 
 .playList table tbody tr td {
   padding: 1rem 0;
+}
+
+.playList table tbody tr td:first-child   {
+  padding: 0 1rem;
+}
+
+.playList table tbody tr td:nth-child(3)  {
+  padding: 0 1rem;
 }
 
 .play-song {
@@ -471,6 +483,10 @@ MAIN CONTENT
 
 .play-control__main i {
   cursor: pointer;
+}
+
+.play-control__main .play-icon {
+  font-size: 3rem;
 }
 
 .play-control__volume {
@@ -724,6 +740,22 @@ RESPONSIVE
     margin-left: 1rem;
   }
 
+  .main.dark-theme .main-content__header i:last-child {
+    color: #ccc;
+  }
+
+  .main.dark-theme .playList table tbody tr.active {
+    background-color: #000;
+  }
+
+  .main-content__banner {
+    height: 20rem;
+  }
+
+  .play-song {
+    margin-top: 0.5rem;
+  }
+
   .sidebar {
     position: absolute;
     top:0;
@@ -737,6 +769,10 @@ RESPONSIVE
     width: 270px;
     box-shadow: 0 0 0.5rem #000;
     padding: 2rem 1.5rem 1rem 1.5rem;
+  }
+
+  .main.dark-theme .sidebar {
+    background-color: #092c3e;
   }
 
   .sidebar-shortcuts__title i {

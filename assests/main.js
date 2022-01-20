@@ -60,63 +60,65 @@ const playAndPause = document.querySelector('.js-playAndPause');
 const range = document.querySelector('.js-range');
 const playList = document.querySelector('.js-playList');
 const changeVolume = document.querySelector('.js-changeVolume');
+const previousSong = document.querySelector('.js-previousSong');
+const nextSong = document.querySelector('.js-nextSong');
 
 // Danh sách bài hát
 const musics =[
   {
       id: 0,
       number: '01',
-      file:'ntt.mp3',
-      title: 'Ngày tận thế',
-      artist: 'Tóc Tiên',
-      time: '3:52',
+      file:'Luu So Em Di - Huynh Van_ Vu Phung Tien.mp3',
+      title: 'Lưu Số Em Đi',
+      artist: 'Huỳnh Văn - Vũ Phụng Tiên',
+      time: '4:16',
       active: true,
   },
   {
       id: 1,
       number: '02',
-      file: 'catena.mp3',
-      title: 'Có ai thương em như anh',
-      artist: 'Tóc Tiên',
-      time: '3:51',
+      file: 'Cham-Quinn.mp3',
+      title: 'Chạm',
+      artist: 'Quinn',
+      time: '5:03',
       active: false,
   },
   {
       id: 2,
       number: '03',
-      file: 'edcnm.mp3',
-      title: 'Em đã có người mới',
-      artist: 'Tóc Tiên',
-      time: '3:20',
+      file: 'Nang Tho - Hoang Dung.mp3',
+      title: 'Nàng Thơ',
+      artist: 'Hoàng Dũng',
+      time: '4:14',
       active: false,
   },
   {
       id: 3,
       number: '04',
-      file: 'vdcc.mp3',
-      title: 'Vũ điệu cồng chiêng',
-      artist: 'Tóc Tiên',
-      time: '3:24',
+      file: 'Ngay Khong Co Em - ThinK.mp3',
+      title: 'Ngày Không Có Em',
+      artist: 'Think',
+      time: '4:23',
       active: false,
   },
   {
       id: 4,
       number: '05',
-      file: 'ttbdty.mp3',
-      title: 'Trên tình bạn dưới tình yêu',
-      artist: 'Min',
-      time: '3:19',
+      file: 'Tuoi-23-Ngo-Lan-Huong.mp3',
+      title: 'Tuổi 23',
+      artist: 'Ngô Lan Hương',
+      time: '4:48',
       active: false,
   },
 ];
 
 // Set default audio
-song.setAttribute('src', `./assests/mp3/${musics[1].file}`);
+song.setAttribute('src', `./assests/mp3/${musics[0].file}`);
 
 for (let i = 0 ; i < musics.length; i++) {
   playList.insertAdjacentHTML('beforeend', 
   `<tr class="js-chooseSong ${musics[i].active ? 'active' : ''}" data-index=${musics[i].id}>
-    <td>${musics[i].id}</td>
+    <td>${musics[i].number}</td>
     <td>${musics[i].title}</td>
     <td>${musics[i].artist}</td>
     <td>${musics[i].time}</td>
@@ -133,17 +135,56 @@ range.addEventListener('change', () => {
   song.currentTime = range.value;
 });
 
+// const changeSong
+const changeSong = (currentIndex, nextIndex) => {
+  const listSong = document.querySelectorAll('.js-chooseSong');
+  listSong[currentIndex].classList.remove('active');
+  listSong[nextIndex].classList.add('active');
+  musics[currentIndex].active = false;
+  musics[nextIndex].active = true;
+  song.setAttribute('src', `./assests/mp3/${musics[nextIndex].file}`);
+  playAndPause.classList.add('fa-pause-circle');
+  playAndPause.classList.remove('fa-play-circle');
+  song.play();
+};
+
 // Choose Song
 playList.addEventListener('click', (e) => {
-  const listSong = document.querySelectorAll('.js-chooseSong');
   const chooseSong = e.target.closest('.js-chooseSong');
   const currentIndex = chooseSong.getAttribute('data-index');
   const indexRecordActive = musics.findIndex(item => item.active);
-  listSong[indexRecordActive].classList.remove('active');
-  listSong[currentIndex].classList.add('active');
-  musics[indexRecordActive].active = false;
-  musics[currentIndex].active = true;
-  song.setAttribute('src', `./assests/mp3/${musics[currentIndex].file}`);
+  changeSong(indexRecordActive, currentIndex);
+});
+
+// AUto play next
+song.addEventListener('ended', () => {
+  const indexRecordActive = musics.findIndex(item => item.active);
+  if (indexRecordActive === musics.length - 1 ) {
+    changeSong(indexRecordActive, 0);
+  } else {
+    changeSong(indexRecordActive, indexRecordActive + 1);
+  }
+  
+});
+
+// Next sang bài tiếp theo
+nextSong.addEventListener('click', () => {
+  const indexRecordActive = musics.findIndex(item => item.active);
+  if (indexRecordActive === musics.length - 1) {
+    changeSong(indexRecordActive, 0);
+  } else {
+    changeSong(indexRecordActive, indexRecordActive + 1);
+  }
+});
+
+// Quay lại bái hát phía trước
+previousSong.addEventListener('click', () => {
+  const indexRecordActive = musics.findIndex(item => item.active);
+  if (indexRecordActive === 0) {
+    changeSong(indexRecordActive, musics.length - 1);
+  } else {
+    changeSong(indexRecordActive, indexRecordActive - 1);
+  }
 });
 
 // Phát và dừng nhac 
