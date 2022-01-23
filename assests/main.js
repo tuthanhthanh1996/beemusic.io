@@ -53,7 +53,7 @@ barsRight.addEventListener('click', (e) => {
 //==============================================
 //                  Play Music
 //==============================================Music
-const song = document.querySelector('.song');
+const song = document.getElementById('song');
 const timerLeft = document.querySelector('.js-timerLeft');
 const timerRight = document.querySelector('.js-timerRight');
 const playAndPause = document.querySelector('.js-playAndPause');
@@ -113,7 +113,7 @@ const musics =[
   {
     id: 5,
     number: '06',
-    file: 'Bước Qua Mùa Cô Đơn.mp3',
+    file: 'Bước-Qua-Mùa-Cô-Đơn.mp3',
     title: 'Bước qua mùa cô đơn',
     artist: 'Vũ',
     time: '4:38',
