@@ -435,6 +435,10 @@ MAIN CONTENT
   transform: scale(1.02);
 }
 
+.main.dark-theme .playList table tbody tr.active {
+  background-color: #000;
+}
+
 .main.dark-theme .playList table tbody tr:hover {
   background-color: #000;
   transition: .25s;
@@ -484,13 +488,14 @@ MAIN CONTENT
 }
 
 .play-control__act {
-  gap: 1rem;
+  width: 10rem;
   display: flex;
   align-items: center;
 }
 
 .play-control__act i {
   cursor: pointer;
+  padding: 0 0.5rem;
 }
 
 .play-control__main {
@@ -499,7 +504,6 @@ MAIN CONTENT
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  font-size: 1.5rem;
 }
 
 .play-control__main i {
@@ -513,7 +517,8 @@ MAIN CONTENT
 .play-control__volume {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  width: 10rem;
+  padding-left: 1rem;
 }
 
 .play-control__volume .volume {
