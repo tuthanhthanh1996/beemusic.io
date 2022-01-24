@@ -236,7 +236,6 @@ const changeSong = (currentIndex, nextIndex) => {
   playAndPause.classList.remove('fa-play-circle');
   song.setAttribute('src', `./assests/mp3/${musics[nextIndex].file}`);
   setTimeout( () => {
-    displayTimerMusic();
     song.play();
   }, 1000);
 };
@@ -288,7 +287,6 @@ playAndPause.addEventListener('click', (e) => {
     e.target.classList.add('fa-pause-circle');
     e.target.classList.remove('fa-play-circle');
     setTimeout( () => {
-      displayTimerMusic();
       song.play();
     }, 1000);
   } else {
@@ -317,7 +315,10 @@ const formatTimer = (time) => {
   return mins + ':' + secs;
 };
 
+
+displayTimerMusic();
 range.value = 0;
+setInterval(displayTimerMusic , 200); // cập nhật lại thời gian
 
 
 
