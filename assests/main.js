@@ -68,7 +68,7 @@ const musics =[
   {
       id: 0,
       number: '01',
-      file:'Luu So Em Di - Huynh Van_ Vu Phung Tien.mp3',
+      file:'Luu-So-Em-Di-Huynh-Van_Vu Phung-Tien.mp3',
       title: 'Lưu Số Em Đi',
       artist: 'Huỳnh Văn - Vũ Phụng Tiên',
       time: '4:16',
@@ -86,7 +86,7 @@ const musics =[
   {
       id: 2,
       number: '03',
-      file: 'Nang Tho - Hoang Dung.mp3',
+      file: 'Nang-Tho-Hoang-Dung.mp3',
       title: 'Nàng Thơ',
       artist: 'Hoàng Dũng',
       time: '4:14',
@@ -95,7 +95,7 @@ const musics =[
   {
       id: 3,
       number: '04',
-      file: 'Ngay Khong Co Em - ThinK.mp3',
+      file: 'Ngay-Khong-Co-Em-ThinK.mp3',
       title: 'Ngày Không Có Em',
       artist: 'Think',
       time: '4:23',
@@ -122,7 +122,7 @@ const musics =[
   {
     id: 6,
     number: '07',
-    file: 'Lalala (Naughty Boy Ft Sam Smith Cover).mp3',
+    file: 'Lalala-(Naughty-Boy-Ft-Sam-Smith-Cover).mp3',
     title: 'Lalala',
     artist: 'Naughty Boy Ft Sam Smith',
     time: '3:05',
@@ -131,7 +131,7 @@ const musics =[
   {
     id: 7,
     number: '08',
-    file: 'BuocQuaNhau-Vu.mp3',
+    file: 'Buoc-Qua-Nhau-Vu.mp3',
     title: 'Bước qua nhau',
     artist: 'Vũ',
     time: '4:17',
@@ -149,7 +149,7 @@ const musics =[
   {
     id: 9,
     number: '10',
-    file: 'HoaNoKhongMauAcousticVersion-HoaiLam.mp3',
+    file: 'Hoa-No-Khong-Mau-Acoustic-Version-Hoai-Lam.mp3',
     title: 'Hoa Nở Không Màu',
     artist: 'Hoài Lâm',
     time: '5:20',
@@ -167,16 +167,43 @@ const musics =[
   {
     id: 11,
     number: '12',
-    file: 'Noi Nho Mang Ten Minh - Hoai Lam.mp3',
+    file: 'Noi-Nho-Mang-Ten-Minh-Hoai-Lam.mp3',
     title: 'Nỗi Nhớ Mang Tên Mình',
     artist: 'Hoài Lâm',
     time: '5:10',
     active: false,
   },
+  {
+    id: 12,
+    number: '13',
+    file: 'LaLung-Vu.mp3',
+    title: 'Lạ Lùng',
+    artist: 'Vũ',
+    time: '4:21',
+    active: false,
+  },
+  {
+    id: 13,
+    number: '14',
+    file: 'Crying-Over-You-JustaTee-Binz.mp3',
+    title: 'Crying Over You',
+    artist: 'JustaTee - Bin',
+    time: '5:38',
+    active: false,
+  },
+  {
+    id: 14,
+    number: '15',
+    file: 'Cho-Anh-Nhe-Hoang-Dung-Hoang-Rob.mp3',
+    title: 'Chờ Anh Nhé',
+    artist: 'Hoàng Dũng',
+    time: '5:23',
+    active: false,
+  },
 ];
 
 // Set default audio
-song.setAttribute('src', `./assests/mp3/${musics[0].file}`);
+song.setAttribute('src', `./assests/mp3/${musics[0].file}`); 
 
 for (let i = 0 ; i < musics.length; i++) {
   playList.insertAdjacentHTML('beforeend', 
@@ -205,10 +232,13 @@ const changeSong = (currentIndex, nextIndex) => {
   listSong[nextIndex].classList.add('active');
   musics[currentIndex].active = false;
   musics[nextIndex].active = true;
-  song.setAttribute('src', `./assests/mp3/${musics[nextIndex].file}`);
   playAndPause.classList.add('fa-pause-circle');
   playAndPause.classList.remove('fa-play-circle');
-  song.play();
+  song.setAttribute('src', `./assests/mp3/${musics[nextIndex].file}`);
+  setTimeout( () => {
+    displayTimerMusic();
+    song.play();
+  }, 1000);
 };
 
 // Choose Song
@@ -257,7 +287,10 @@ playAndPause.addEventListener('click', (e) => {
   if (checkPlay) {
     e.target.classList.add('fa-pause-circle');
     e.target.classList.remove('fa-play-circle');
-    song.play();
+    setTimeout( () => {
+      displayTimerMusic();
+      song.play();
+    }, 1000);
   } else {
     e.target.classList.remove('fa-pause-circle');
     e.target.classList.add('fa-play-circle');
@@ -284,13 +317,7 @@ const formatTimer = (time) => {
   return mins + ':' + secs;
 };
 
-
-displayTimerMusic();
-
 range.value = 0;
-setInterval(() => {
-  displayTimerMusic();
-}, 1000); 
 
 
 
