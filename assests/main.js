@@ -286,9 +286,7 @@ playAndPause.addEventListener('click', (e) => {
   if (checkPlay) {
     e.target.classList.add('fa-pause-circle');
     e.target.classList.remove('fa-play-circle');
-    setTimeout( () => {
-      song.play();
-    }, 1000);
+    song.play();
   } else {
     e.target.classList.remove('fa-pause-circle');
     e.target.classList.add('fa-play-circle');
@@ -314,7 +312,6 @@ const formatTimer = (time) => {
   }
   return mins + ':' + secs;
 };
-
 
 displayTimerMusic();
 range.value = 0;
